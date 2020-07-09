@@ -1252,6 +1252,8 @@ void Context::render2D(const Tape& tape, const Eigen::Matrix3f& mat, const float
 
         // Assign the next number of tiles to evaluate
         count = active_tile_count;
+		if (count == 0)
+			return; // early out
     }
 
     // Time to render individual pixels!
@@ -1417,6 +1419,8 @@ void Context::render3D(const Tape& tape, const Eigen::Matrix4f& mat) {
 
         // Assign the next number of tiles to evaluate
         count = active_tile_count;
+		if (count == 0)
+			return; // early out
     }
 
     // Time to render individual pixels!
@@ -2110,6 +2114,8 @@ Ptr<float[]> Context::render2D_heatmap(const Tape& tape,
 
         // Assign the next number of tiles to evaluate
         count = active_tile_count;
+		if (count == 0)
+			return heatmap; // early out
     }
 
     // Time to render individual pixels!
@@ -2291,6 +2297,8 @@ Ptr<float[]> Context::render3D_heatmap(const Tape& tape,
 
         // Assign the next number of tiles to evaluate
         count = active_tile_count;
+		if (count == 0)
+			return heatmap; // early out
     }
 
     // Time to render individual pixels!
